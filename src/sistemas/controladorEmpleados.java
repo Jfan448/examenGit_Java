@@ -16,7 +16,7 @@ public class controladorEmpleados {
 	
 	//metodos 
 	public void insertar_info_empleado() {
-		System.out.println("Cuantos estudiantes quieres ingresar");
+		System.out.println("Cuantos empleados quieres ingresar");
 		numero_empleados=SC.nextInt();
 		
 		//creacion arreglo tipo objetos estudiantes
@@ -57,7 +57,7 @@ public class controladorEmpleados {
 	public void editar_empleados(){
 		
 	 // while(true) {
-			System.out.println("Ingrese le indice del estudiante que quiere editar");
+			System.out.println("Ingrese le indice del empleado que quiere editar");
 			int indice=SC.nextInt();
 			SC.nextLine();
 			String desicion;
