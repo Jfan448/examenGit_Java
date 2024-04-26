@@ -11,7 +11,7 @@ public class controladorTareasPersonales {
 	
 	
 	int numero_tareas;
-	empleados[] tareasPersonales;
+	tareasPersonales[] tareasPersonales;
 
 	
 	//metodos 
@@ -21,7 +21,7 @@ public class controladorTareasPersonales {
 	    
 	    tareasPersonales = new tareasPersonales[numero_tareas];
 	    for (int i = 0; i < numero_tareas; i++) {
-	        SC.nextLine();
+	    	SC.nextLine();
 	        System.out.println("Dame el nombre de la tarea número " + (i + 1) + ":");
 	        String nombreTarea = SC.nextLine();
 	        
@@ -42,64 +42,58 @@ public class controladorTareasPersonales {
 	    System.out.println("--------------------------");
 	}
 
-	public void editar_empleados(){
+	public void editar_tarea(){
 		
 	 // while(true) {
-			System.out.println("Ingrese le indice del estudiante que quiere editar");
+			System.out.println("Ingrese le indice de la tarea que quiere editar");
 			int indice=SC.nextInt();
 			SC.nextLine();
 			String desicion;
 			
 			if(indice >=0 && indice<tareasPersonales.length) {
 				//variable de tipo estudiante que guarda el estudiante de la lista
-				empleados empleadosEditar = tareasPersonales[indice];
+				tareasPersonales tareaEditar = tareasPersonales[indice];
 			do {	
 					System.out.println("Que deseas editar ");
-					System.out.println("1.nombre ");
-					System.out.println("2.apellido ");
-					System.out.println("3.telefono ");
-					System.out.println("4.edad ");
-					System.out.println("5.salario ");
+					System.out.println("1.nombre tarea ");
+					System.out.println("2.fecha tarea ");
+					System.out.println("3.prioridad ");
+					System.out.println("4.estado ");
+					
 					
 					int editar=SC.nextInt();
 					SC.nextLine();
 					switch(editar) {
 						
 					case 1:
-					    System.out.println("Escribre el nuevo nombre");
+					    System.out.println("Escribe el nuevo nombre");
 						String nombreNuevo=SC.nextLine();
 						SC.nextLine();
-					    empleadosEditar.setNombres(nombreNuevo);
+					    tareaEditar.setNombreTarea(nombreNuevo);;
 					    System.out.println("Se edito el nombre");
 					    break;
 					case 2:
-						System.out.println("Escribe el nuevo apellido");
-						String apellidoNuevo=SC.nextLine();
+						System.out.println("Escribe la nueva fecha");
+						String fechaNuevo=SC.nextLine();
 						SC.nextLine();
-						empleadosEditar.setApellidos(apellidoNuevo);
+						tareaEditar.setFecha_vencimiento(fechaNuevo);;
 						System.out.println("Se edito el apellido");
 						break;
 					case 3:
-						System.out.println("Escribe el nuevo telefono");
-						String telefonoNuevo=SC.nextLine();
+						System.out.println("Escribe la nueva prioridad");
+						String prioridadNuevo=SC.nextLine();
 						SC.nextLine();
-						empleadosEditar.setTelefono(telefonoNuevo);
-						System.out.println("Se edito el telefono");
+						tareaEditar.setPrioridad_tarea(prioridadNuevo);
+						System.out.println("Se edito el prioridad");
 						break;
 					case 4:
-						System.out.println("Escribe la edad nueva");
-						int edadNueva=SC.nextInt();
+						System.out.println("Escribe el estado nuevo");
+						String estadoNueva=SC.nextLine();
 						SC.nextLine();
-						empleadosEditar.setEdad(edadNueva);
-						System.out.println("Se edito la edad");
+						tareaEditar.setEstado_tarea(estadoNueva);;
+						System.out.println("Se edito el estado");
 						break;
-					case 5:
-						System.out.println("Escribe el salario nueva");
-						int salarioNueva=SC.nextInt();
-						SC.nextLine();
-						empleadosEditar.setSalarios(salarioNueva);;
-						System.out.println("Se edito el salario");
-						break;
+					
 					default:
 						System.out.println("Opcion no valida");
 						break;
@@ -116,16 +110,16 @@ public class controladorTareasPersonales {
 	}
 	
 	
-	public void mostrar_empleados() {
+	public void mostrar_tareas() {
 		//impresion informacion
 				for(int i=0;i<numero_tareas;i++) {
 					System.out.println("////////////////////");
 					System.out.println("Informacion personal:");
-					System.out.println(tareasPersonales[i].getNombres());
-					System.out.println(tareasPersonales[i].getApellidos());
-					System.out.println(tareasPersonales[i].getEdad());
-					System.out.println(tareasPersonales[i].getTelefono());
-					System.out.println(tareasPersonales[i].getSalarios());
+					System.out.println(tareasPersonales[i].getNombreTarea());
+					System.out.println(tareasPersonales[i].getFecha_vencimiento());
+					System.out.println(tareasPersonales[i].getPrioridad_tarea());
+					System.out.println(tareasPersonales[i].getEstado_tarea());
+					
 					
 					System.out.println("////////////////////");
 					
@@ -133,27 +127,39 @@ public class controladorTareasPersonales {
 				}
 	}
 	
-	public void informe_empleados() {
+	public void informe_tareas() {
 		System.out.println("///////////////////////");
 		System.out.println("INFORME EMPLEADOS");
-		int sumaSalarios=0;
-		double calculo=0.0;
+		//int sumaSalarios=0;
+		int contPriPoco=0;
+		int contPriRegu=0;
+		int contPriInme=0;
 		
 		for(int i=0;i<numero_tareas;i++) {
+			System.out.println("--------------------------");
 			System.out.println("Informacion personal:");
-			System.out.println(tareasPersonales[i].getNombres());
-			System.out.println(tareasPersonales[i].getApellidos());
-			System.out.println(tareasPersonales[i].getEdad());
-			System.out.println(tareasPersonales[i].getTelefono());
-			System.out.println(tareasPersonales[i].getSalarios());
+			System.out.println(tareasPersonales[i].getNombreTarea());
+			System.out.println(tareasPersonales[i].getFecha_vencimiento());
+			System.out.println(tareasPersonales[i].getPrioridad_tarea());
+			System.out.println(tareasPersonales[i].getEstado_tarea());
+			System.out.println("--------------------------");
 			
-			sumaSalarios += tareasPersonales[i].getSalarios();
+			if(tareasPersonales[i].getPrioridad_tarea().equals("poca")) {
+				contPriPoco+=1;
+			}else if(tareasPersonales[i].getPrioridad_tarea().equals("regulada")) {
+				contPriRegu+=1;
+			}else if(tareasPersonales[i].getPrioridad_tarea().equals("inmediata")) {
+				contPriInme+=1;
+			}
+			
 		 }
-		calculo=sumaSalarios/numero_tareas;
 		
 		
-		System.out.println("El promedio de salarios de los empleados fue de: " + calculo );
-		System.out.println("Actual mente hay " + tareasPersonales.length + "empleados" );
+		
+		System.out.println("La cantidad de tareas con poca prioridad es: " + contPriPoco );
+		System.out.println("La cantidad de tareas con poca prioridad es: " + contPriRegu );
+		System.out.println("La cantidad de tareas con poca prioridad es: " + contPriInme );
+		//System.out.println("Actual mente hay " + tareasPersonales.length + "empleados" );
 		
 		System.out.println("//////////////////////////");
 		

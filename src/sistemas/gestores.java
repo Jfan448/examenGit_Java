@@ -10,6 +10,7 @@ public class gestores {
 		controladorEstudiantes CE = new controladorEstudiantes();
 		controladorInventario CP = new controladorInventario();
 		controladorEmpleados CEM = new controladorEmpleados();
+		controladorTareasPersonales CT = new controladorTareasPersonales();
 	
 	int opc;	
 	String gestionadores;	
@@ -19,7 +20,7 @@ public class gestores {
 		System.out.println("Que opcion deseas");
 		System.out.println("E.Gestionador de estudiantes");
 		System.out.println("I.Gestionador de inventario");
-		System.out.println("3.Gestionador de tareas");
+		System.out.println("T.Gestionador de tareas");
 		System.out.println("EM.Gestionador de empleados");
 		System.out.println("5.Gestionador de proyectos");
 		System.out.println("/////////////////////////////////");
@@ -142,6 +143,49 @@ public class gestores {
 					  case 4:
 						  
 					   CEM.informe_empleados()
+;					   break;
+					  
+						  
+						
+					default:
+						System.out.println("No fue valida la opcion");
+						break;
+					
+					
+					}
+				}while(opc!=0);
+			break;
+		}
+		else if(gestionadores.equals("T")){
+			do {
+				
+				
+				System.out.println("Bienvenido al gestionardor de empleados");
+				System.out.println("/////////////////////////////////");
+				
+				System.out.println("Que opcion deseas");
+				System.out.println("1.Guardar tareas");
+				System.out.println("2.Editar tarea");
+				System.out.println("3.mostrar informacion de tareas");
+				System.out.println("4.Mostrar informe de tareas");
+				System.out.println("/////////////////////////////////");
+			
+			
+				opc=SC.nextInt();
+					switch(opc){
+					  case 1:
+						  
+					   CT.insertar_info_tareas();
+					   break;
+					  case 2:
+					   CT.editar_tarea();
+						  break;
+					  case 3:
+					   CT.mostrar_tareas();
+					   break;
+					  case 4:
+						  
+					   CT.informe_tareas();
 ;					   break;
 					  
 						  

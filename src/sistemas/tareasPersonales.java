@@ -66,6 +66,8 @@ public String getEstado_tarea() {
 public void setEstado_tarea(String estado_tarea) {
 	this.estado_tarea = estado_tarea;
 }
+
+
    
 
 
